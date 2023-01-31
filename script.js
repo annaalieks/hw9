@@ -1,7 +1,44 @@
 'use strict';
 
 // ЗАДАЧА 1
-// ‘FizzBuzz’ через генератор
+// ‘FizzBuzz’ через ітератор -  не через класи
+
+let numbersSequence = {};
+
+numbersSequence[Symbol.iterator] = function (start = 1, end = 100, interval = 1) {
+
+        let counter = 0;
+        let nextIndex = start;
+
+        return {
+            next: () => {
+
+                if (nextIndex <= end) {
+                    let result = { value: nextIndex, done: false }
+
+                    nextIndex += interval;
+                    counter++;
+
+                    if (counter % 15 === 0) {
+                        result = { value: "FizzBuzz", done: false }
+                    } else if (counter % 5 === 0) {
+                        result = { value: "Buzz", done: false }
+                    } else if (counter % 3 == 0) {
+                        result = { value: "Fizz", done: false }
+                    }
+
+                    return result;
+                }
+                return {done: true };
+            }
+        }
+}
+
+for (const num of numbersSequence) {
+    console.log(num);
+}
+
+// ‘FizzBuzz’ через генератор - не через класи
 
 function* fizzBuzzGenerator(start = 1, end = 100, interval = 1) {
     let num;
@@ -74,7 +111,7 @@ for (const num of numSequence) {
 // }
 
 
-// // ‘FizzBuzz’ через генератор
+// // ‘FizzBuzz’ через генератор - через класи
 
 // class FizzBuzzGenerator {
 
@@ -111,15 +148,15 @@ for (const num of numSequence) {
 // ЗАДАЧА 2
 //  Генератор випадкових чисел
 
-function* generateRandomNumbers(max = 50, quantity = 10) {
+// function* generateRandomNumbers(max = 50, quantity = 10) {
     
-    for (let i = 1; i <= quantity; i++) {
-        yield Math.round(Math.random() * max);
-    }
-}
+//     for (let i = 1; i <= quantity; i++) {
+//         yield Math.round(Math.random() * max);
+//     }
+// }
 
-let randomNumberSequence = generateRandomNumbers();
+// let randomNumberSequence = generateRandomNumbers();
 
-for (const num of randomNumberSequence) {
-    console.log(num);
-}
+// for (const num of randomNumberSequence) {
+//     console.log(num);
+// }
