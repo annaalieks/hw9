@@ -23,7 +23,7 @@ numbersSequence[Symbol.iterator] = function (start = 1, end = 100, interval = 1)
                         result = { value: "FizzBuzz", done: false }
                     } else if (counter % 5 === 0) {
                         result = { value: "Buzz", done: false }
-                    } else if (counter % 3 == 0) {
+                    } else if (counter % 3 === 0) {
                         result = { value: "Fizz", done: false }
                     }
 
@@ -49,7 +49,7 @@ function* fizzBuzzGenerator(start = 1, end = 100, interval = 1) {
             yield num = "FizzBuzz";
         } else if (num % 5 === 0) {
             yield num = "Buzz";
-        } else if (num % 3 == 0) {
+        } else if (num % 3 === 0) {
             yield num = "Fizz";
         } else {
             yield num;
@@ -92,7 +92,7 @@ for (const num of numSequence) {
 //                         result = { value: "FizzBuzz", done: false }
 //                     } else if (counter % 5 === 0) {
 //                         result = { value: "Buzz", done: false }
-//                     } else if (counter % 3 == 0) {
+//                     } else if (counter % 3 === 0) {
 //                         result = { value: "Fizz", done: false }
 //                     }
 
@@ -130,7 +130,7 @@ for (const num of numSequence) {
 //                 yield num = "FizzBuzz";
 //             } else if (num % 5 === 0) {
 //                 yield num = "Buzz";
-//             } else if (num % 3 == 0) {
+//             } else if (num % 3 === 0) {
 //                 yield num = "Fizz";
 //             } else {
 //                 yield num;
